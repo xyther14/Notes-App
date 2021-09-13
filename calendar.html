@@ -1,0 +1,108 @@
+<html>
+
+<head>
+    <title>
+        Calendar App
+    </title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        var month = new Date().getMonth();
+        //using temporary mail = mapedeh737@rebation.com
+        const api_url =
+            "https://calendarific.com/api/v2/holidays?&api_key=43cf6411c65d56b8cdff0589f42ece5d856a6e21&country=IN&year=2021&month=" + (month + 1);
+
+        async function getapi(url) {
+            const response = await fetch(url);
+
+            var data = await response.json();
+            // console.log(data.response.holidays[0].name);
+            if (response) {
+                hideloader();
+            }
+            show(data);
+
+        }
+
+        function getHolidays() {
+            const parent = document.getElementById("foo")
+            while (parent.firstChild) {
+                parent.firstChild.remove()
+            }
+            var month = Number(document.getElementById("month").value);
+            var url = "https://calendarific.com/api/v2/holidays?&api_key=43cf6411c65d56b8cdff0589f42ece5d856a6e21&country=IN&year=2021&month=" + (month + 1);
+            getapi(url);
+        }
+
+        getapi(api_url);
+
+        function hideloader() {
+            document.getElementById('loading').style.display = 'none';
+        }
+
+        function show(data) {
+            for (var i = 0; i < data.response.holidays.length; i++) {
+                var name = data.response.holidays[i].name;
+                var desc = data.response.holidays[i].description;
+                var date = data.response.holidays[i].date.datetime.day;
+                var month = data.response.holidays[i].date.datetime.month;
+                $('.notes_grid').append("<div class='notes' style='text-align:center;'>" + "<span style='font-size:22px'>" + name + "</span>" + "<br><br><br>" + "<span style='color:yellow'>" + desc + "</span>" +
+                    "<br><br><br>" + "<span style='font-size:30px'>Date: " + date + "/" + month + "/2021" + "</span>" + "</div>");
+            }
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <nav>
+            <div class="logo">
+                <img src="logo.png" height="100" width="100">
+            </div>
+            <ul>
+                <a href="calendar.html">
+                    <li>Holidays</li>
+                </a>
+                <a href="notes.html">
+                    <li>Notes</li>
+                </a>
+                <a>
+                    <li>About Us</li>
+                </a>
+                <a href="contact.html">
+                    <li>Contact</li>
+                </a>
+            </ul>
+        </nav>
+    </div>
+
+    <h2 style="color:black; display:flex; justify-content: center; align-items: center;">List of Holidays</h2>
+    <select id="month" onchange="getHolidays()">
+        <option value="0">January</option>
+        <option value="1">February</option>
+        <option value="2">March</option>
+        <option value="3">April</option>
+        <option value="4">May</option>
+        <option value="5">June</option>
+        <option value="6">July</option>
+        <option value="7">August</option>
+        <option value="8">September</option>
+        <option value="9">October</option>
+        <option value="10">November</option>
+        <option value="11">December</option>
+    </select>
+
+    <div style="position: relative; justify-content: center; align-items: center;">
+        <img src="loading.gif" height="100" width="100" id="loading">
+    </div>
+
+    <div class="notes_grid" id="foo"></div>
+
+</body>
+
+
+</html>

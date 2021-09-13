@@ -1,0 +1,206 @@
+body{
+	font-family: 'Urbanist', sans-serif;
+	font-size:18px;
+	background-color: lightblue;
+}
+
+.add_btn {
+    background-color: #F44336;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    background: rgb(19, 111, 141);
+    border: none;
+    outline: none;
+	cursor: pointer;
+    color: #FFF;
+    font-size: 36px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  }
+
+  #month {
+	  width: 100%;
+	  padding: 18px;
+	  border-radius: 12px;
+	  background-color: rgb(118, 124, 216);
+	  color: #fff;
+  }
+
+  .add_btn:hover {
+	  background-color: red;
+  }
+
+  #loading {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 20%;
+  }
+
+  .notes{
+      background-color: rebeccapurple;
+	  box-shadow: 5px 5px 10px rebeccapurple;
+      padding: 18px;
+      width: auto;
+	  color:#fff;
+      margin: 25px;
+      border-radius: 18px;
+  }
+
+	.container {
+	position: relative;
+	height: 10%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+	}
+
+	nav {
+		background: #e0e5ec;
+		box-shadow: 5px 5px 10px #042961;
+		height: 100px;
+		flex-direction: row;
+		border-radius: 25px;
+		width: 100%;
+		background-color: rgb(21, 87, 163);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+	  }
+	  
+	  
+	  .logo {
+		padding-left: 50px;
+		margin: 0;
+		width: 20%;
+	  }
+	
+	  
+	  ul {
+		display: flex;
+		justify-content: flex-end;
+		width: 80%;
+		flex-direction: row;
+		padding-left: 0;
+	  }
+	
+	  a {
+		  color: #fff;
+	  }
+	  
+	  ul li {
+		display: inline-block;
+		margin: 0 70px 0 0;
+		text-align: left;
+		border-bottom-style: none;
+		padding: 0;
+		list-style-type: none;
+		font-size: 15px;
+		cursor: pointer;
+		border-bottom-color: #ccc;
+		border-bottom-width: 1px;
+	  }
+
+  .floating{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+  }
+
+  .notes_grid {
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    }
+
+  .contact-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+	background-color: #fff;
+	border: 3px solid #000;
+	border-radius: 10px;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 50px 70px;
+	text-align: center;
+	width: 600px;
+	max-width: 100%;
+}
+
+.contact-container h2 {
+	margin: 0 0 10px;
+	opacity: 0.8;
+}
+
+.contact-container p {
+	opacity: 0.7;
+	letter-spacing: 0.5px;
+	line-height: 24px;
+}
+
+.contact-container form {
+	width: 450px;
+	max-width: 100%;
+}
+
+.contact-container .wrapper {
+	position: relative;
+	margin: 10px 0;
+	height: 44px;
+	width: 100%;
+}
+
+.contact-container .wrapper-big {
+	height: 80px;
+}
+
+.contact-container input, .contact-container textarea {
+	border: none;
+	border-radius: 4px;
+	font-family: 'Urbanist', sans-serif;
+	font-size: 14px;
+	padding: 12px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	height: 100%;
+	width: 100%;
+	z-index: 10;
+}
+
+.contact-container input:focus, .contact-container textarea:focus {
+	outline: 0;
+}
+
+
+.contact-container .gradient-bg {
+	background: #999;
+	border-radius: 4px;
+	position: absolute;
+	top: -1px;
+	left: -1px;
+	width: calc(100% + 2px);
+	height: calc(100% + 2px);
+	z-index: 9;
+}
+
+.contact-container button {
+	background: lightgreen;
+	border: none;
+	border-radius: 4px;
+	color: #fff;
+	display: block;
+	cursor: pointer;
+	font-size: 16px;
+	padding: 12px;
+	width: 100%;
+}
